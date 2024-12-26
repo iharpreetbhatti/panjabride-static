@@ -1479,6 +1479,8 @@ Version      : 1.0
 
 const form = document.getElementById("tripDetailsForm");
 form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
   let isValid = true;
 
   // Clear previous error messages
@@ -1566,8 +1568,26 @@ form.addEventListener("submit", function (e) {
     showError(agreement, "You must agree to the terms and conditions.");
   }
 
-  if (!isValid) {
-    e.preventDefault();
+  if (isValid) {
+    // Create a FormData object from the form
+    const formData = new FormData(form);
+
+    // Use Fetch API to submit the form data
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response from the server
+        console.log("Success:", data);
+        alert("Form submitted successfully!");
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.error("Error:", error);
+        alert("There was an error submitting the form.");
+      });
   }
 });
 function showError(element, message) {
