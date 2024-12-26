@@ -1477,134 +1477,133 @@ Version      : 1.0
   }
 })(jQuery);
 
-// const form = document.getElementById("tripDetailsForm");
-// form.addEventListener("submit", function (e) {
-//   e.preventDefault();
+const form = document.getElementById("tripDetailsForm");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-//   let isValid = true;
+  let isValid = true;
 
-//   // Clear previous error messages
-//   const errorMessages = form.querySelectorAll(".error-message");
-//   errorMessages.forEach(function (message) {
-//     message.remove();
-//   });
+  // Clear previous error messages
+  const errorMessages = form.querySelectorAll(".error-message");
+  errorMessages.forEach(function (message) {
+    message.remove();
+  });
 
-//   // Validate Pickup Location
-//   const pickupLocation = document.getElementById("pickupLocation");
-//   if (pickupLocation.value.trim() === "") {
-//     isValid = false;
-//     showError(pickupLocation, "Pickup Location is required.");
-//   }
+  // Validate Pickup Location
+  const pickupLocation = document.getElementById("pickupLocation");
+  if (pickupLocation.value.trim() === "") {
+    isValid = false;
+    showError(pickupLocation, "Pickup Location is required.");
+  }
 
-//   // Validate Destination
-//   const destination = document.getElementById("destinationLocation");
-//   if (destination.value.trim() === "") {
-//     isValid = false;
-//     showError(destination, "Destination is required.");
-//   }
+  // Validate Destination
+  const destination = document.getElementById("destinationLocation");
+  if (destination.value.trim() === "") {
+    isValid = false;
+    showError(destination, "Destination is required.");
+  }
 
-//   // Validate Name
-//   const name = document.getElementById("name");
-//   if (name.value.trim() === "") {
-//     isValid = false;
-//     showError(name, "Name is required.");
-//   }
+  // Validate Name
+  const name = document.getElementById("name");
+  if (name.value.trim() === "") {
+    isValid = false;
+    showError(name, "Name is required.");
+  }
 
-//   // Validate Phone
-//   const phone = document.getElementById("phone");
-//   if (phone.value.trim() === "") {
-//     isValid = false;
-//     showError(phone, "Phone is required.");
-//   } else if (!validatePhone(phone.value.trim())) {
-//     isValid = false;
-//     showError(phone, "Invalid phone number.");
-//   }
+  // Validate Phone
+  const phone = document.getElementById("phone");
+  if (phone.value.trim() === "") {
+    isValid = false;
+    showError(phone, "Phone is required.");
+  } else if (!validatePhone(phone.value.trim())) {
+    isValid = false;
+    showError(phone, "Invalid phone number.");
+  }
 
-//   // Validate Email
-//   const email = document.getElementById("email");
-//   if (email.value.trim() === "") {
-//     isValid = false;
-//     showError(email, "Email is required.");
-//   } else if (!validateEmail(email.value.trim())) {
-//     isValid = false;
-//     showError(email, "Invalid email format.");
-//   }
+  // Validate Email
+  const email = document.getElementById("email");
+  if (email.value.trim() === "") {
+    isValid = false;
+    showError(email, "Email is required.");
+  } else if (!validateEmail(email.value.trim())) {
+    isValid = false;
+    showError(email, "Invalid email format.");
+  }
 
-//   // Validate Pickup Date
-//   const tripDate = document.getElementById("tripDate");
-//   if (tripDate.value.trim() === "") {
-//     isValid = false;
-//     showError(tripDate, "Pickup Date is required.");
-//   }
+  // Validate Pickup Date
+  const tripDate = document.getElementById("tripDate");
+  if (tripDate.value.trim() === "") {
+    isValid = false;
+    showError(tripDate, "Pickup Date is required.");
+  }
 
-//   // Validate Pickup Time
-//   const tripTime = document.getElementById("tripTime");
-//   if (tripTime.value.trim() === "") {
-//     isValid = false;
-//     showError(tripTime, "Pickup Time is required.");
-//   }
+  // Validate Pickup Time
+  const tripTime = document.getElementById("tripTime");
+  if (tripTime.value.trim() === "") {
+    isValid = false;
+    showError(tripTime, "Pickup Time is required.");
+  }
 
-//   // Validate Trip Type
-//   const tripType = form.querySelector('input[name="tripType"]:checked');
-//   if (!tripType) {
-//     isValid = false;
-//     showError(
-//       form.querySelector('input[name="tripType"]'),
-//       "Trip Type is required."
-//     );
-//   }
+  // Validate Trip Type
+  const tripType = form.querySelector('input[name="tripType"]:checked');
+  if (!tripType) {
+    isValid = false;
+    showError(
+      form.querySelector('input[name="tripType"]'),
+      "Trip Type is required."
+    );
+  }
 
-//   // Validate Vehicle Type
-//   const vehicleType = document.getElementById("vehicleType");
-//   if (vehicleType.value.trim() === "") {
-//     isValid = false;
-//     showError(vehicleType, "Vehicle Type is required.");
-//   }
+  // Validate Vehicle Type
+  const vehicleType = document.getElementById("vehicleType");
+  if (vehicleType.value.trim() === "") {
+    isValid = false;
+    showError(vehicleType, "Vehicle Type is required.");
+  }
 
-//   // Validate Agreement
-//   const agreement = document.getElementById("agreement");
-//   if (!agreement.checked) {
-//     isValid = false;
-//     showError(agreement, "You must agree to the terms and conditions.");
-//   }
+  // Validate Agreement
+  const agreement = document.getElementById("agreement");
+  if (!agreement.checked) {
+    isValid = false;
+    showError(agreement, "You must agree to the terms and conditions.");
+  }
 
-//   if (isValid) {
-//     // Create a FormData object from the form
-//     const formData = new FormData(form);
+  if (isValid) {
+    // Create a FormData object from the form
+    const formData = new FormData(form);
 
-//     // Use Fetch API to submit the form data
-//     fetch("https://jsonplaceholder.typicode.com/posts", {
-//       method: "POST",
-//       body: formData,
-//     })
-//       .then((response) => response.json())
-//       .then((data) => {
-//         // Handle the response from the server
-//         console.log("Success:", data);
-//         alert("Form submitted successfully!");
-//       })
-//       .catch((error) => {
-//         // Handle any errors
-//         console.error("Error:", error);
-//         alert("There was an error submitting the form.");
-//       });
-//   }
-// });
-// function showError(element, message) {
-//   const error = document.createElement("div");
-//   error.className = "error-message";
-//   error.style.color = "red";
-//   error.textContent = message;
-//   element.parentElement.appendChild(error);
-// }
+    // Use Fetch API to submit the form data
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        // Handle the response from the server
+        alert("Form submitted successfully!");
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.error("Error:", error);
+        alert("There was an error submitting the form.");
+      });
+  }
+});
+function showError(element, message) {
+  const error = document.createElement("div");
+  error.className = "error-message";
+  error.style.color = "red";
+  error.textContent = message;
+  element.parentElement.appendChild(error);
+}
 
-// function validateEmail(email) {
-//   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//   return re.test(email);
-// }
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
 
-// // fuction validatePhone(phone) to only accept numbers
-// function validatePhone(phone) {
-//   const re = /^\d+$/;
-//   return re.test(phone);
-// }
+// fuction validatePhone(phone) to only accept numbers
+function validatePhone(phone) {
+  const re = /^\d+$/;
+  return re.test(phone);
+}
