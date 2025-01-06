@@ -339,13 +339,20 @@
       padding-right: 0;
     }
   }
-  .column-agreement {
+  .column-agreement,
+  .column-alert {
     flex: 100%;
     max-width: 100%;
 
     .input-block {
       display: flex;
       justify-content: center;
+    }
+  }
+  .column-alert {
+    .alert-success,
+    .alert-danger {
+      display: none;
     }
   }
   .input-block-wrapp {

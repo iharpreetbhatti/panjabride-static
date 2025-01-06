@@ -3510,13 +3510,19 @@ table .badge {
 .enquiry-box .column-group-main:last-child {
   padding-right: 0;
 }
-.enquiry-box .column-agreement {
+.enquiry-box .column-agreement,
+.enquiry-box .column-alert {
   flex: 100%;
   max-width: 100%;
 }
-.enquiry-box .column-agreement .input-block {
+.enquiry-box .column-agreement .input-block,
+.enquiry-box .column-alert .input-block {
   display: flex;
   justify-content: center;
+}
+.enquiry-box .column-alert .alert-success,
+.enquiry-box .column-alert .alert-danger {
+  display: none;
 }
 @media (max-width: 767.98px) {
   .enquiry-box .input-block-wrapp {
