@@ -1579,13 +1579,15 @@ form.addEventListener("submit", function (e) {
       body: new URLSearchParams(formData).toString(),
     })
       .then(() => {
+        form.reset();
         // Handle the response from the server
-        alert("Form submitted successfully!");
+        document.querySelector(".alert-success").style.display = "block";
+        document.querySelector(".alert-danger").style.display = "none";
       })
       .catch((error) => {
         // Handle any errors
-        console.error("Error:", error);
-        alert("There was an error submitting the form.");
+        document.querySelector(".alert-success").style.display = "none";
+        document.querySelector(".alert-danger").style.display = "block";
       });
   }
 });
